@@ -1,3 +1,18 @@
-<nav>
-    <button mat-raised-button color="primary">Primary</button>
-</nav>
+<mat-toolbar class="navbar-top">
+  <nav>
+    <div>
+      <div>Ez Cook</div>
+      <ul>
+        <li>หน้าแรก</li>
+        <li>จัดอันดับ</li>
+      </ul>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="beforeMenu">บอส บอสซ่า</button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item>โปรไฟล์</button>
+        <button mat-menu-item>ออกจากระบบ</button>
+      </mat-menu>
+    </div>
+  </nav>
+</mat-toolbar>
