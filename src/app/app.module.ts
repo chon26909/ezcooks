@@ -11,13 +11,19 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FoodDetailComponent } from './components/food-detail/food-detail.component';
+import { SearchComponent } from './components/search/search.component'
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    FoodDetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     MatIconModule,
     MatMenuModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

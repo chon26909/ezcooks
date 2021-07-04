@@ -1,20 +1,30 @@
-<div class="loading" *ngIf="!foods">
-  <mat-spinner></mat-spinner>
-</div>
+<app-search></app-search>
+
 <div class="container">
+  <div class="loading" *ngIf="!foods">
+    <mat-spinner></mat-spinner>
+  </div>
   <section class="categories" *ngIf="foods"></section>
 
   <section class="section-foods" *ngIf="foods">
-    <div class="card" *ngFor="let food of foods">
+    <h1>อาหารที่คุณสนใจ</h1>
+    <div class="food-list">
+       <div class="card" *ngFor="let food of foods">
       <div class="card-body">
-        <img [src]="food.imageFood" [alt]="food.nameFood" />
+        <a [routerLink]="['/detail/' + food.id]">
+          <img [src]="food.imageFood" [alt]="food.nameFood" />
+        </a>
         <button mat-icon-button class="save">
           <mat-icon>bookmark_border</mat-icon>
         </button>
       </div>
       <div class="card-footer">
-        {{ food.nameFood }}
+        <a [routerLink]="['/detail/' + food.id]">
+          {{ food.nameFood }}
+        </a>
       </div>
     </div>
+    </div>
+   
   </section>
 </div>

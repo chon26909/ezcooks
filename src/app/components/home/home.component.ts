@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FoodService } from 'src/app/services/food.service';
 
 interface Food {
+  id: string,
   categoryFood: string,
   date: Date,
   howCook: [],

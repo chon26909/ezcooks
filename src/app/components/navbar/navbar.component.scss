@@ -6,14 +6,23 @@
     justify-content: space-between;
     max-width: 1200px;
     width: 100%;
-  
     margin: 0 auto;
 
     div {
       display: flex;
       align-items: center;
       margin: 0;
-      padding: 0 7px;
+      padding: 0 4px;
+
+      .logo {
+        a {
+          font-size: 28px;
+          font-weight: 700;
+          color: red;
+          text-decoration: none;
+          text-shadow: 4px 4px 5px white;
+        }
+      }
 
       ul {
         display: flex;
@@ -22,6 +31,21 @@
           padding: 10px 20px;
           margin: 10px;
         }
+      }
+
+      .btn-user {
+
+        font-size: 16px;
+        font-weight: 700;
+
+       img {
+         width: 40px;
+         height: 40px;
+         object-fit: cover;
+         border-radius: 50%;
+         margin: 5px;
+         border: 2px solid white;
+       } 
       }
     }
   }
