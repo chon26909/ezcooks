@@ -15,4 +15,11 @@ export class FoodService {
     
   }
 
+  getFoodDetail(id) {
+    const url = "https://ezcooks.herokuapp.com/food/detail/" + id;
+
+    return this.http.get(url);
+
+  }
+
 }

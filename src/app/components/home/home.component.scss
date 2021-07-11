@@ -11,7 +11,7 @@
   border: 1px solid whitesmoke;
   box-shadow: 5px 5px 20px lightgray;
   overflow: hidden;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
 }
 
 .loading {
@@ -31,6 +31,30 @@
 
 .categories {
   background-color: white;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 5px 20px;
+      margin: 5px;
+      border-radius: 15px;
+      background-color: whitesmoke;
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+
+      &:hover {
+        background-color: rgb(212, 212, 212);
+      }
+    }
+
+    .active {
+      background-color: pink;
+    }
+  }
 }
 
 .section-foods {

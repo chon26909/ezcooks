@@ -1,1 +1,25 @@
-<p>food-detail works!</p>
+<div class="container">
+    <div class="food-image">
+        <img [src]="detailFood.imageFood" alt="">
+    </div>
+    <div class="food-title">
+        <div>
+            ชื่อเมนู {{detailFood.nameFood}}
+        </div>
+        <div>
+            เวลาในการทำ {{detailFood.timeCook}} นาที
+        </div>
+    </div>
+    <div class="section-detail ingredient">
+        <div class="head">ส่วนผสม</div>
+        <ul>
+            <li *ngFor="let ingredient of detailFood.ingredient">{{ingredient}}</li>
+        </ul>
+    </div>
+    <div class="section-detail howtocook">
+        <div class="head">วิธีทำ</div>
+        <ul>
+            <li *ngFor="let howto of detailFood.howCook">{{howto}}</li>
+        </ul>
+    </div>
+</div>

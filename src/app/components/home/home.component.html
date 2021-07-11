@@ -4,27 +4,37 @@
   <div class="loading" *ngIf="!foods">
     <mat-spinner></mat-spinner>
   </div>
-  <section class="categories" *ngIf="foods"></section>
+  <section class="categories" *ngIf="foods">
+    <ul>
+      <li
+        *ngFor="let category of categories"
+        [class.active]="category == selectedCategory"
+        (click)="showCategory(category)"
+      >
+        {{ category }}
+      </li>
+    </ul>
+    {{ selectedCategory }}
+  </section>
 
   <section class="section-foods" *ngIf="foods">
     <h1>อาหารที่คุณสนใจ</h1>
     <div class="food-list">
-       <div class="card" *ngFor="let food of foods">
-      <div class="card-body">
-        <a [routerLink]="['/detail/' + food.id]">
-          <img [src]="food.imageFood" [alt]="food.nameFood" />
-        </a>
-        <button mat-icon-button class="save">
-          <mat-icon>bookmark_border</mat-icon>
-        </button>
-      </div>
-      <div class="card-footer">
-        <a [routerLink]="['/detail/' + food.id]">
-          {{ food.nameFood }}
-        </a>
+      <div class="card" *ngFor="let food of foods">
+        <div class="card-body">
+          <a [routerLink]="['/detail/' + food.id]">
+            <img [src]="food.imageFood" [alt]="food.nameFood" />
+          </a>
+          <button mat-icon-button class="save">
+            <mat-icon>bookmark_border</mat-icon>
+          </button>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/detail/' + food.id]">
+            {{ food.nameFood }}
+          </a>
+        </div>
       </div>
     </div>
-    </div>
-   
   </section>
 </div>

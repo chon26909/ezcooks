@@ -1,0 +1,64 @@
+.food-image {
+    width: 100%;
+    img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+}
+
+.container {
+    margin: 10px auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.food-title {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.section-detail {
+
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 18px;
+
+    .head { 
+        padding: 12px;
+        border-radius: 15px;
+        width: 80px;
+        text-align: center;
+        margin: 10px 20px;
+    }
+
+    ul {
+        list-style-type: decimal;
+        margin: 10px 20px;
+        padding: 0;
+        li {
+            padding: 15px 0;
+        }
+    }
+
+    
+}
+
+.ingredient {
+    background-color: #FFE6E1;
+
+    .head {
+        background-color: #F1AC9E;
+    }
+}
+.howtocook {
+    background-color: #F1AC9E;
+
+    .head {
+        background-color: #FFE6E1;
+    }
+}
