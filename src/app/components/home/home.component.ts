@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FoodService } from 'src/app/services/food.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 interface Food {
   id: string,
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
   private _categories: String[];
   private _selected_category: String; //เก็บชื่อหมวดหมู่ที่ใช้ผู้ใช้เลือก
 
-  constructor(private foodService: FoodService) {
+  constructor(private foodService: FoodService,public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -52,16 +54,6 @@ export class HomeComponent implements OnInit {
       this._foods.map((food) => {
 
         this._categories.push(food.categoryFood);   //เพิ่ม หมวดหมู่ของอาหาร ลงไป
-
-        // if(!this._categories.includes(food.categoryFood)) { //ถ้าตัวแปร array _categories มันไม่มี food.categoryFood ตัวนี้ เป็นส่วนประกอบ
-
-        //     // this._categories.push(food.categoryFood);
-
-        //     this._categories = [...this._categories, food.categoryFood];
-
-        // }
-
-
       })
 
       this._categories = [...new Set(this._categories)];  // ลบค่าที่ซ้ำออกจาก arrar categories
@@ -85,23 +77,25 @@ export class HomeComponent implements OnInit {
 
     this._foods = category_name == "ทั้งหมด" ? this._allFood : this._allFood.filter(food => (food.categoryFood == category_name));
 
-    // if (category_name == "ทั้งหมด") {
-    //   this._foods = this._allFood;
-    // }
-    // else {
-    //   this._allFood.map((food) => {
-
-    //     if (food.categoryFood == category_name) {
-
-    //       this._foods.push(food)
-
-    //     }
-
-    //   })
-    // }
-
-
-
   }
 
+  onClickConfirmDelete(foodid:string) {
+
+    const confirmdelete = this.dialog.open(ConfirmDeleteComponent)
+
+    confirmdelete.afterClosed().subscribe(result => {
+
+      if(result) {
+
+        // const food_deleted = this._foods.filter(function(food) { return food.id != foodid} );
+
+        const food_deleted = this._foods.filter((food) => { return food.id != foodid } );
+
+        this._foods = food_deleted;
+
+      }
+
+    });
+
+  }
 }

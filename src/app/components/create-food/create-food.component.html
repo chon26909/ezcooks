@@ -1,0 +1,53 @@
+<div class="container">
+  <form [formGroup]="formFood" (submit)="submit()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>ชื่อเมนูอาหาร</mat-label>
+        <input
+          formControlName="foodName"
+          matInput
+          placeholder="เช่น ผัดกะเพราใส่กัญชา"
+        />
+
+        <mat-hint *ngIf="submited && control.foodName.errors">
+          <div *ngIf="control.foodName.errors.required">
+            โปรดใส่ชื่อเมนูอาหาร
+          </div>
+        </mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div formArrayName="ingredients" class="ingredient">
+
+      <h3>ส่วนประกอบในการทำ</h3>
+
+      <div *ngFor="let item of arrayIngredient.controls; let i=index">
+
+        <mat-form-field appearance="outline">
+          <mat-label>ส่วนประกอบ</mat-label>
+          <input
+            [formControlName]="i"
+            matInput
+            placeholder="ใบกัญชา"
+          />
+
+          <mat-hint *ngIf="submited && arrayIngredient.controls[i].errors">
+            <div *ngIf="arrayIngredient.controls[i].errors.required">
+              โปรดใส่ส่วนผสม
+            </div>
+          </mat-hint>
+
+        </mat-form-field>
+      </div>
+      <div>
+            <button mat-flat-button (click)="addIngredient()"><mat-icon>add</mat-icon> เพิ่มส่วนผสม</button>
+      </div>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">
+        สร้างรายการอาหาร
+      </button>
+    </div>
+  </form>
+</div>

@@ -16,6 +16,12 @@ import { FoodDetailComponent } from './components/food-detail/food-detail.compon
 import { SearchComponent } from './components/search/search.component'
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateFoodComponent } from './components/create-food/create-food.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddfoodComponent } from './components/addfood/addfood.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     NavbarComponent,
     HomeComponent,
     FoodDetailComponent,
-    SearchComponent
+    SearchComponent,
+    ConfirmDeleteComponent,
+    CreateFoodComponent,
+    AddfoodComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +45,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

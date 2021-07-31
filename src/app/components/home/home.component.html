@@ -33,6 +33,9 @@
           <a [routerLink]="['/detail/' + food.id]">
             {{ food.nameFood }}
           </a>
+          <div class="group-btn"> 
+            <button mat-icon-button (click)="onClickConfirmDelete(food.id)" class="btn-delete"><mat-icon>delete</mat-icon>ลบ</button>
+          </div>
         </div>
       </div>
     </div>
